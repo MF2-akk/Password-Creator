@@ -30,17 +30,16 @@ int generate(size_t length) {
   return 0;
 }
 
-int main() {
-    char function[10];
-    size_t length;
-    if (scanf("%s %zu", function, &length) == 2) {
-      if (strcmp(function, "generate") == 0) {
-        generate(length);
-      }
-    } else {
-      printf("Invalide value");
-      return 1;
-    }
-
+int main(int argc, char *argv[]) {
+  if (argc == 3)  {
+    if (strcmp(argv[1], "generate") == 0) {
+        if (generate((size_t)atoi(argv[2])) != 0) {
+          return 1;
+        }
+        }
+  } else  {
+  printf("Invalide operation\n");
+  return 1;
+  }
     return 0;
 }
